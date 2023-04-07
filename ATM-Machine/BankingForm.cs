@@ -26,13 +26,21 @@ namespace ATM_Machine
         //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
         private void Withdraw_Click(object sender, EventArgs e)
         {
-           SavingsBalance.Text = (0.01).ToString();
+            Update_Balances(1);
         }
 
-        private void Update_Balances()
+        private void Update_Balances(int AccountID)
         {
-            SavingsBalance.Text = (0.01).ToString();
-            CheckingBalance.Text = (0).ToString();
+            Account CurrentAcc = SQLHelper.GetAccount(AccountID);
+
+            CustomerID.Text = CurrentAcc.AccountID.ToString();
+            SavingsBalance.Text = CurrentAcc.Savings.ToString();
+            CheckingBalance.Text = CurrentAcc.Checking.ToString();
+
+        }
+
+        private void BankingForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

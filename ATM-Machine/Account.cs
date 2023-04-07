@@ -6,19 +6,32 @@ using System.Threading.Tasks;
 
 namespace ATM_Machine
 {
-    internal class Account
+    public class Account
     {
         //private instance variables to represent the user ID, checking and savings balance
+        private int _AccountID;
         private decimal _checking;
-        private int AccountID;
         private decimal _savings;
 
         //constructor that recieves an User info and uses it to initialize the instance variable with public property
-        public Account(decimal checking, int accID, decimal savings)
+        public Account(int accID, decimal checking,  decimal savings)
         {
-            Checking = checking;
             AccountID = accID;
+            Checking = checking;
             Savings = savings;
+        }
+
+        public int AccountID
+        {
+            get { return _AccountID; }
+            set 
+            {
+                if (value > 0)
+                    _AccountID = value;
+                else
+                    throw new Exception("AccountID can't be 0 or less.");
+                   
+            }
         }
         public decimal Checking
         {
@@ -29,7 +42,7 @@ namespace ATM_Machine
                 if (value >= 0)
                     _checking = value;
                 else
-                    throw new Exception("Balance cannot be negative");
+                    throw new Exception("Checking balance cannot be negative");
             }
         }
 
@@ -41,7 +54,7 @@ namespace ATM_Machine
                 if (value >= 0)
                     _savings = value;
                 else
-                    throw new Exception("Balance cannot be negative");
+                    throw new Exception("Savings balance cannot be negative");
             }
         }
 

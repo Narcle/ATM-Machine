@@ -28,163 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SavingsBalance = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            WithdrawAmount = new TextBox();
-            label2 = new Label();
-            CustomerID = new TextBox();
-            label1 = new Label();
-            Exit = new Button();
-            Withdraw = new Button();
-            CheckingBalance = new TextBox();
-            AccountNumber = new ComboBox();
-            SuspendLayout();
+            this.SavingsBalance = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.WithdrawAmount = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CustomerID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Exit = new System.Windows.Forms.Button();
+            this.Withdraw = new System.Windows.Forms.Button();
+            this.CheckingBalance = new System.Windows.Forms.TextBox();
+            this.AccountNumber = new System.Windows.Forms.ComboBox();
+            this.SuspendLayout();
             // 
             // SavingsBalance
             // 
-            SavingsBalance.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            SavingsBalance.Location = new Point(212, 181);
-            SavingsBalance.Name = "SavingsBalance";
-            SavingsBalance.PlaceholderText = "0.00";
-            SavingsBalance.ReadOnly = true;
-            SavingsBalance.Size = new Size(210, 34);
-            SavingsBalance.TabIndex = 22;
-            //
+            this.SavingsBalance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SavingsBalance.Location = new System.Drawing.Point(212, 172);
+            this.SavingsBalance.Name = "SavingsBalance";
+            this.SavingsBalance.PlaceholderText = "0.00";
+            this.SavingsBalance.ReadOnly = true;
+            this.SavingsBalance.Size = new System.Drawing.Size(210, 32);
+            this.SavingsBalance.TabIndex = 22;
+            // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(42, 184);
-            label5.Name = "label5";
-            label5.Size = new Size(175, 28);
-            label5.TabIndex = 21;
-            label5.Text = "Savings Balance:  $";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(42, 175);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(171, 25);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Savings Balance:  $";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(29, 114);
-            label4.Name = "label4";
-            label4.Size = new Size(188, 28);
-            label4.TabIndex = 20;
-            label4.Text = "Checking Balance:  $";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(29, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(185, 25);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Checking Balance:  $";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(337, 284);
-            label3.Name = "label3";
-            label3.Size = new Size(148, 28);
-            label3.TabIndex = 18;
-            label3.Text = "from Account #";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(337, 270);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 25);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "from Account #";
             // 
             // WithdrawAmount
             // 
-            WithdrawAmount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            WithdrawAmount.Location = new Point(153, 278);
-            WithdrawAmount.Name = "WithdrawAmount";
-            WithdrawAmount.PlaceholderText = "0.00";
-            WithdrawAmount.RightToLeft = RightToLeft.Yes;
-            WithdrawAmount.Size = new Size(178, 34);
-            WithdrawAmount.TabIndex = 17;
+            this.WithdrawAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WithdrawAmount.Location = new System.Drawing.Point(153, 264);
+            this.WithdrawAmount.Name = "WithdrawAmount";
+            this.WithdrawAmount.PlaceholderText = "0.00";
+            this.WithdrawAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.WithdrawAmount.Size = new System.Drawing.Size(178, 32);
+            this.WithdrawAmount.TabIndex = 17;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(42, 281);
-            label2.Name = "label2";
-            label2.Size = new Size(118, 28);
-            label2.TabIndex = 16;
-            label2.Text = "Withdraw  $";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(42, 267);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 25);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Withdraw  $";
             // 
             // CustomerID
             // 
-            CustomerID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CustomerID.Location = new Point(212, 29);
-            CustomerID.Name = "CustomerID";
-            CustomerID.PlaceholderText = "12345678";
-            CustomerID.ReadOnly = true;
-            CustomerID.Size = new Size(210, 34);
-            CustomerID.TabIndex = 15;
+            this.CustomerID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CustomerID.Location = new System.Drawing.Point(212, 28);
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.PlaceholderText = "12345678";
+            this.CustomerID.ReadOnly = true;
+            this.CustomerID.Size = new System.Drawing.Size(210, 32);
+            this.CustomerID.TabIndex = 15;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(29, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(177, 28);
-            label1.TabIndex = 14;
-            label1.Text = "Customer Number:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(29, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 25);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Customer Number:";
             // 
             // Exit
             // 
-            Exit.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            Exit.Location = new Point(650, 385);
-            Exit.Name = "Exit";
-            Exit.Size = new Size(122, 37);
-            Exit.TabIndex = 13;
-            Exit.Text = "Exit";
-            Exit.UseVisualStyleBackColor = true;
-            Exit.Click += Exit_Click;
+            this.Exit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Exit.Location = new System.Drawing.Point(650, 366);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(122, 35);
+            this.Exit.TabIndex = 13;
+            this.Exit.Text = "Exit";
+            this.Exit.UseVisualStyleBackColor = true;
             // 
             // Withdraw
             // 
-            Withdraw.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            Withdraw.Location = new Point(271, 342);
-            Withdraw.Name = "Withdraw";
-            Withdraw.Size = new Size(260, 80);
-            Withdraw.TabIndex = 24;
-            Withdraw.Text = "Withdraw";
-            Withdraw.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Withdraw.UseVisualStyleBackColor = true;
-            Withdraw.Click += Withdraw_Click;
+            this.Withdraw.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Withdraw.Location = new System.Drawing.Point(271, 325);
+            this.Withdraw.Name = "Withdraw";
+            this.Withdraw.Size = new System.Drawing.Size(260, 76);
+            this.Withdraw.TabIndex = 24;
+            this.Withdraw.Text = "Withdraw";
+            this.Withdraw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Withdraw.UseVisualStyleBackColor = true;
             // 
             // CheckingBalance
             // 
-            CheckingBalance.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CheckingBalance.Location = new Point(212, 111);
-            CheckingBalance.Name = "CheckingBalance";
-            CheckingBalance.PlaceholderText = "0.00";
-            CheckingBalance.ReadOnly = true;
-            CheckingBalance.Size = new Size(210, 34);
-            CheckingBalance.TabIndex = 25;
+            this.CheckingBalance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CheckingBalance.Location = new System.Drawing.Point(212, 105);
+            this.CheckingBalance.Name = "CheckingBalance";
+            this.CheckingBalance.PlaceholderText = "0.00";
+            this.CheckingBalance.ReadOnly = true;
+            this.CheckingBalance.Size = new System.Drawing.Size(210, 32);
+            this.CheckingBalance.TabIndex = 25;
             // 
             // AccountNumber
             // 
-            AccountNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            AccountNumber.FormattingEnabled = true;
-            AccountNumber.Location = new Point(491, 284);
-            AccountNumber.Name = "AccountNumber";
-            AccountNumber.Size = new Size(236, 36);
-            AccountNumber.TabIndex = 26;
+            this.AccountNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountNumber.FormattingEnabled = true;
+            this.AccountNumber.Location = new System.Drawing.Point(491, 270);
+            this.AccountNumber.Name = "AccountNumber";
+            this.AccountNumber.Size = new System.Drawing.Size(236, 33);
+            this.AccountNumber.TabIndex = 26;
             // 
             // BankingForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(AccountNumber);
-            Controls.Add(CheckingBalance);
-            Controls.Add(Withdraw);
-            Controls.Add(SavingsBalance);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(WithdrawAmount);
-            Controls.Add(label2);
-            Controls.Add(CustomerID);
-            Controls.Add(label1);
-            Controls.Add(Exit);
-            Name = "BankingForm";
-            Text = "Banking Form";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 428);
+            this.Controls.Add(this.AccountNumber);
+            this.Controls.Add(this.CheckingBalance);
+            this.Controls.Add(this.Withdraw);
+            this.Controls.Add(this.SavingsBalance);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.WithdrawAmount);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CustomerID);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Exit);
+            this.Name = "BankingForm";
+            this.Text = "Banking Form";
+            this.Load += new System.EventHandler(this.BankingForm_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

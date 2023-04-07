@@ -5,11 +5,11 @@ namespace ATM_Machine
 {
     public partial class BankLogin : Form
     {
+
         public BankLogin()
         {
             InitializeComponent();
         }
-
 
         private void BankLogin_Load(object sender, EventArgs e)
         {
