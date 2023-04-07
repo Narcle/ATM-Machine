@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -103,10 +104,74 @@ namespace ATM_Machine
         //Select function
         public static void SelectFromDatabase(string sqlstring)
         {
-
+          
         }
 
-        
+        //Update SQL table to reflect account changed variables, updates to SQL server only.
+        public static void UpdateAccount(int AccountID, decimal Checking, decimal Savings)
+        {
+            using (SqlConnection con = new SqlConnection(SQLcs))
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE Accounts SET checkingBal=@Checking and savingsBal=@Savings WHERE AccountId=@AccountID", con);
+                cmd.Parameters.AddWithValue("@AccountID", AccountID);
+                cmd.Parameters.AddWithValue("@Checking", Checking);
+                cmd.Parameters.AddWithValue("@Savings", Savings);
+                try
+                {
+                    con.Open();
+                    int test = cmd.ExecuteNonQuery();
+                    if (test > 0)
+                        Console.WriteLine("Account " + AccountID + " has been updated.");
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine("Error Generated. Details: " + ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                    Console.Read();
+
+                }
+            }
+        }
+
+        public static Account GetAccount(int AccountID)
+        {
+
+            using (SqlConnection con = new SqlConnection(SQLcs))
+            {
+                var checking = new decimal();
+                var savings = new decimal();
+                var retList = new List<string>();
+                string query = "SELECT * FROM Accounts WHERE AccountId = " + AccountID.ToString() ;
+                SqlCommand cmd = new SqlCommand(query, con);
+                //cmd.Parameters.AddWithValue("@tableName", tableName);
+                con.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+
+                        while (reader.Read())
+                        {
+                            retList.Add(reader.GetString(0));
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine("Error Generated. Details: " + ex.ToString());
+                    }
+                    finally
+                    {
+                        con.Close();
+                        Console.Read();
+
+                    }
+                    return Account(AccountID, checking, savings);
+                }
+            }
+        }
 
         //Get Table data
         public static List<string> GetSQLTable(string tableName)

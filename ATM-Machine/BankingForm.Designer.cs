@@ -51,7 +51,7 @@
             SavingsBalance.ReadOnly = true;
             SavingsBalance.Size = new Size(210, 34);
             SavingsBalance.TabIndex = 22;
-            // 
+            //
             // label5
             // 
             label5.AutoSize = true;
@@ -91,7 +91,6 @@
             WithdrawAmount.RightToLeft = RightToLeft.Yes;
             WithdrawAmount.Size = new Size(178, 34);
             WithdrawAmount.TabIndex = 17;
-            WithdrawAmount.TextChanged += WithdrawAmount_TextChanged;
             // 
             // label2
             // 
@@ -112,7 +111,6 @@
             CustomerID.ReadOnly = true;
             CustomerID.Size = new Size(210, 34);
             CustomerID.TabIndex = 15;
-            CustomerID.TextChanged += CustomerID_TextChanged;
             // 
             // label1
             // 
@@ -165,7 +163,6 @@
             AccountNumber.Name = "AccountNumber";
             AccountNumber.Size = new Size(236, 36);
             AccountNumber.TabIndex = 26;
-            AccountNumber.SelectedIndexChanged += AccountNumber_SelectedIndexChanged;
             // 
             // BankingForm
             // 

@@ -15,30 +15,24 @@ namespace ATM_Machine
         public BankingForm()
         {
             InitializeComponent();
-        }
-
-        private void CustomerID_TextChanged(object sender, EventArgs e)
-        {
-
+            //can I do variable changes here? To set AccountId, checking, savings
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
-        private void WithdrawAmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
         private void Withdraw_Click(object sender, EventArgs e)
         {
-
+           SavingsBalance.Text = (0.01).ToString();
         }
 
-        private void AccountNumber_SelectedIndexChanged(object sender, EventArgs e)
+        private void Update_Balances()
         {
+            SavingsBalance.Text = (0.01).ToString();
+            CheckingBalance.Text = (0).ToString();
 
         }
     }
