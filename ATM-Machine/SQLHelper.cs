@@ -26,8 +26,8 @@ namespace ATM_Machine
             {
                 SqlCommand cmd = new SqlCommand("UPDATE Accounts SET checkingBal=@Checking and savingsBal=@Savings WHERE AccountId=@Account", con);
                 cmd.Parameters.AddWithValue("@Account", CurAccount.AccountID.ToString());
-                cmd.Parameters.AddWithValue("@AccountI", CurAccount.Checking.ToString());
-                cmd.Parameters.AddWithValue("@AccountI", CurAccount.Savings.ToString());
+                cmd.Parameters.AddWithValue("@Checking", CurAccount.Checking.ToString());
+                cmd.Parameters.AddWithValue("@Savings", CurAccount.Savings.ToString());
                 try
                 {
                     con.Open();

@@ -12,35 +12,44 @@ namespace ATM_Machine
 {
     public partial class BankingForm : Form
     {
-        public BankingForm()
+        
+        public BankingForm(int AccountNum)
         {
             InitializeComponent();
-            //can I do variable changes here? To set AccountId, checking, savings
+            //Send logged in account info to GUI, and save AccountID
+            Account CurrentAcc = SQLHelper.GetAccount(AccountNum);
+            Update_Balances(CurrentAcc);
         }
 
-        private void Exit_Click(object sender, EventArgs e)
+        //Load account balances from SQL Database and update the GUI text to reflect ID and balances.
+        private void Update_Balances(Account CurrentAcc)
         {
-            Application.Exit();
-        }
-
-        //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
-        private void Withdraw_Click(object sender, EventArgs e)
-        {
-            Update_Balances(1);
-        }
-
-        private void Update_Balances(int AccountID)
-        {
-            Account CurrentAcc = SQLHelper.GetAccount(AccountID);
-
             CustomerID.Text = CurrentAcc.AccountID.ToString();
             SavingsBalance.Text = CurrentAcc.Savings.ToString();
             CheckingBalance.Text = CurrentAcc.Checking.ToString();
-
         }
 
         private void BankingForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void Exit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Withdraw_Click_1(object sender, EventArgs e)
+        {
+            //Withdraw Button (had to re-add it, stupid gui designer)
+            //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
+            
+            //if (Checking drop down)
+
+            Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
+            CurrentAcc.DebitChecking(Convert.ToDecimal(WithdrawAmount.Text));
+            SQLHelper.UpdateAccount(CurrentAcc);
+            Update_Balances(CurrentAcc);
 
         }
     }

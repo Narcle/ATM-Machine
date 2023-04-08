@@ -33,10 +33,11 @@ namespace ATM_Machine
         }
 
         //readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
-        readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf;Integrated Security=True";
+        readonly string ConnStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf"";Integrated Security=True";
+        // Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="D:\Google Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf";Integrated Security=True
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //Login button
+            //Login button - why is it so hard to change button name? GUI editor hates it
             if (textBox1.Text == "" || textBox2.Text == "")
             {
                 MessageBox.Show("Please provide Account ID and Bank Pin");
@@ -45,7 +46,7 @@ namespace ATM_Machine
             try
             {
                 //Create SqlConnection
-                SqlConnection con = new SqlConnection(cs);
+                SqlConnection con = new SqlConnection(ConnStr);
                 SqlCommand cmd = new SqlCommand("Select * from Accounts where AccountId=@username and bankpin=@password", con);
                 cmd.Parameters.AddWithValue("@username", textBox1.Text);
                 cmd.Parameters.AddWithValue("@password", textBox2.Text);
@@ -60,7 +61,7 @@ namespace ATM_Machine
                 {
                     MessageBox.Show("Login Successful!");
                     this.Hide();
-                    BankingForm fm = new BankingForm();
+                    BankingForm fm = new BankingForm(Convert.ToInt32(textBox1.Text));
                     fm.Show();
                 }
                 else
