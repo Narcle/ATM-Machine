@@ -16,11 +16,6 @@ namespace ATM_Machine
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //Bank ID #
@@ -32,9 +27,6 @@ namespace ATM_Machine
 
         }
 
-        //readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
-        readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf"";Integrated Security=True";
-        // Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="D:\Google Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf";Integrated Security=True
         private void button1_Click_1(object sender, EventArgs e)
         {
             //Login button - why is it so hard to change button name? GUI editor hates it
@@ -43,38 +35,19 @@ namespace ATM_Machine
                 MessageBox.Show("Please provide Account ID and Bank Pin");
                 return;
             }
-            try
+            //Switch to SQLHelper.Account here, validate pin match for login.
+            Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(textBox1.Text));
+            if (CurrentAcc.PinNum == Convert.ToInt32(textBox2.Text))
             {
-                //Create SqlConnection
-                SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Select * from Accounts where AccountId=@username and bankpin=@password", con);
-                cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                cmd.Parameters.AddWithValue("@password", textBox2.Text);
-                con.Open();
-                SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapt.Fill(ds);
-                con.Close();
-                int count = ds.Tables[0].Rows.Count;
-                //If count is equal to 1, than show frmMain form
-                if (count == 1)
-                {
-                    MessageBox.Show("Login Successful!");
-                    this.Hide();
-                    BankingForm fm = new BankingForm(Convert.ToInt32(textBox1.Text));
-                    fm.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Login Failed!");
-                }
+                MessageBox.Show("Login Successful!");
+                this.Hide();
+                BankingForm fm = new BankingForm(CurrentAcc.AccountID);
+                fm.Show();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Login Failed!");
             }
         }
-
-
     }
 }

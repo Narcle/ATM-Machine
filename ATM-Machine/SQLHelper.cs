@@ -54,6 +54,7 @@ namespace ATM_Machine
 
             using (SqlConnection con = new SqlConnection(SQLcs))
             {
+                var pinNum = new int();
                 var checking = new decimal();
                 var savings = new decimal();
                 string query = "SELECT * FROM Accounts WHERE AccountId=@Account";
@@ -66,6 +67,7 @@ namespace ATM_Machine
                     {  
                         while (reader.Read()) 
                         {
+                            pinNum = Convert.ToInt32(reader["bankpin"]);
                             checking = Convert.ToDecimal(reader["checkingBal"]);
                             savings = Convert.ToDecimal(reader["savingsBal"]);
                         }
@@ -81,7 +83,7 @@ namespace ATM_Machine
                         Console.Read();
 
                     }
-                    return new Account(AccountID, checking, savings);
+                    return new Account(AccountID, pinNum, checking, savings);
                 }
             }
         }

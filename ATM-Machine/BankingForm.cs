@@ -45,12 +45,13 @@ namespace ATM_Machine
             //Withdraw Button (had to re-add it, stupid gui designer)
             //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
 
-            //if (Checking drop down)
+            //if (Checking drop down) else Savings withdrawl
             if (Convert.ToDecimal(WithdrawAmount.Text) > 0)
             {
                 Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
                 if (CurrentAcc.DebitChecking(Convert.ToDecimal(WithdrawAmount.Text)))
                 {
+                    MessageBox.Show("Withdraw = $" + WithdrawAmount.Text);//can you add a cancel to this?
                     SQLHelper.UpdateAccount(CurrentAcc);
                     Update_Balances(CurrentAcc);
                 }

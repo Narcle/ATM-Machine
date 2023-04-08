@@ -9,28 +9,43 @@ namespace ATM_Machine
     public class Account
     {
         //private instance variables to represent the user ID, checking and savings balance
-        private int _AccountID;
+        private int _accountID;
+        private int _pinNum;
         private decimal _checking;
-        private decimal _savings;
+        private decimal _savings;//I could also see storing this as a list, for multiple savings accounts at different interest rates
 
-        //constructor that recieves an User info and uses it to initialize the instance variable with public property
-        public Account(int accID, decimal checking,  decimal savings)
+        //constructor that recieves an account(customer) info and uses it to initialize the instance variable with public property
+        public Account(int accID, int pinNum, decimal checking,  decimal savings)
         {
             AccountID = accID;
+            PinNum = pinNum;
             Checking = checking;
             Savings = savings;
         }
 
         public int AccountID
         {
-            get { return _AccountID; }
+            get { return _accountID; }
             set 
             {
                 if (value > 0)
-                    _AccountID = value;
+                    _accountID = value;
                 else
                     throw new Exception("AccountID can't be 0 or less.");
                    
+            }
+        }
+
+        public int PinNum
+        {
+            get { return _pinNum; }
+            set
+            {
+                if (value > 0)
+                    _pinNum = value;
+                else
+                    throw new Exception("AccountID can't be 0 or less.");
+
             }
         }
         public decimal Checking
@@ -87,20 +102,21 @@ namespace ATM_Machine
                 Checking -= amount;
                 OK = true;
             }
-            //else if (Savings >= (Checking - amount))
-            //{
-            //    Console.Write("Debit amount exceeds checking balance, remainder has be withdrawn from savings account.");
-            //    Checking = 0;
-            //    Savings -= amount;
-            //    OK = true;
-            //}
+            else if (Savings >= (Checking - amount))//Test if this works, automatically takes from savings on overdraw
+            {
+                Console.Write("Debit amount exceeds checking balance, remainder has be withdrawn from savings account.");
+                Checking = 0;
+                Savings -= amount;
+                OK = true;
+            }
             else
             {
-                Console.Write("Debit amount exceeded account balance.");
+                Console.Write("Debit amount exceeded checking account balance.");
                 OK = false;
             }
             return OK;
         }
+
         public virtual bool DebitSavings(decimal amount)
         {
             bool OK = true;
@@ -111,7 +127,7 @@ namespace ATM_Machine
             }
             else
             {
-                Console.Write("Debit amount exceeded account balance.");
+                Console.Write("Debit amount exceeded savings account balance.");
                 OK = false;
             }
             return OK;
