@@ -13,12 +13,6 @@ namespace ATM_Machine
         //const string SQLcs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
         const string SQLcs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf"";Integrated Security=True";
 
-        //Select function
-        public static void SelectFromDatabase(string sqlstring)
-        {
-          
-        }
-
         //Update SQL table to reflect account changed variables, updates to SQL server only.
         public static void UpdateAccount(Account CurAccount)
         {

@@ -12,7 +12,7 @@ namespace ATM_Machine
 {
     public partial class BankingForm : Form
     {
-        
+
         public BankingForm(int AccountNum)
         {
             InitializeComponent();
@@ -40,26 +40,65 @@ namespace ATM_Machine
             Application.Exit();
         }
 
-        private void Withdraw_Click_1(object sender, EventArgs e)
+        //ToDo: Transfer of money between accounts (function and button layout)
+
+        private void Withdraw_Click(object sender, EventArgs e)
         {
             //Withdraw Button (had to re-add it, stupid gui designer)
             //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
 
-            //if (Checking drop down) else Savings withdrawl
-            if (Convert.ToDecimal(WithdrawAmount.Text) > 0)
+            if ((checkBoxChecking.Checked) & (checkBoxSavings.Checked))
             {
+                MessageBox.Show("Please only check only one checkbox for Checking or Savings account.");
+                return;
+            }
+            if (!(checkBoxChecking.Checked) & !(checkBoxSavings.Checked))
+            {
+                MessageBox.Show("Please check one checkbox for Checking or Savings account.");
+                return;
+            }
+
+            //if (Checking drop down)
+            if (checkBoxChecking.Checked)
+                {
                 Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
                 if (CurrentAcc.DebitChecking(Convert.ToDecimal(WithdrawAmount.Text)))
                 {
-                    MessageBox.Show("Withdraw = $" + WithdrawAmount.Text);//can you add a cancel to this?
+                    MessageBox.Show("Withdraw from Checking = $" + WithdrawAmount.Text);//can you add a cancel to this?
+                    SQLHelper.UpdateAccount(CurrentAcc);
+                    Update_Balances(CurrentAcc);
+                }                
+            }
+            if (checkBoxSavings.Checked)
+            {
+                Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
+                if (CurrentAcc.DebitSavings(Convert.ToDecimal(WithdrawAmount.Text)))
+                {
+                    MessageBox.Show("Withdraw from Savings = $" + WithdrawAmount.Text);//can you add a cancel to this?
                     SQLHelper.UpdateAccount(CurrentAcc);
                     Update_Balances(CurrentAcc);
                 }
-                //else
             }
+        }
 
-
-
+        private void TransferBtn_Click(object sender, EventArgs e)
+        {
+            //Transfer $ from savings to checking
+            decimal amt = Convert.ToDecimal(TransferBox.Text);
+            if (amt > 0)
+            {
+                Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
+                if (amt >= CurrentAcc.Savings)
+                {
+                    if (CurrentAcc.DebitSavings(amt))
+                    {
+                        CurrentAcc.CreditChecking(amt);
+                        SQLHelper.UpdateAccount(CurrentAcc);
+                        Update_Balances(CurrentAcc);
+                        MessageBox.Show("Savings to Checking Transfer = $" + amt.ToString());
+                    }                           
+                }
+            }             
         }
     }
 }
