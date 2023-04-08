@@ -27,6 +27,7 @@ namespace ATM_Machine
             CustomerID.Text = CurrentAcc.AccountID.ToString();
             SavingsBalance.Text = CurrentAcc.Savings.ToString();
             CheckingBalance.Text = CurrentAcc.Checking.ToString();
+            WithdrawAmount.Text = "0.00";
         }
 
         private void BankingForm_Load(object sender, EventArgs e)
@@ -43,13 +44,20 @@ namespace ATM_Machine
         {
             //Withdraw Button (had to re-add it, stupid gui designer)
             //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
-            
-            //if (Checking drop down)
 
-            Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
-            CurrentAcc.DebitChecking(Convert.ToDecimal(WithdrawAmount.Text));
-            SQLHelper.UpdateAccount(CurrentAcc);
-            Update_Balances(CurrentAcc);
+            //if (Checking drop down)
+            if (Convert.ToDecimal(WithdrawAmount.Text) > 0)
+            {
+                Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
+                if (CurrentAcc.DebitChecking(Convert.ToDecimal(WithdrawAmount.Text)))
+                {
+                    SQLHelper.UpdateAccount(CurrentAcc);
+                    Update_Balances(CurrentAcc);
+                }
+                //else
+            }
+
+
 
         }
     }

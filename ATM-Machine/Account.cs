@@ -81,19 +81,19 @@ namespace ATM_Machine
         //Hint: Define Account’s Debit method so that it returns a bool indicating whether money was withdrawn.
         public virtual bool DebitChecking(decimal amount)
         {
-            bool OK = true;
+            bool OK = false;
             if (Checking - amount >= 0)
             {
                 Checking -= amount;
                 OK = true;
             }
-            else if (Savings >= (Checking - amount))
-            {
-                Console.Write("Debit amount exceeds checking balance, remainder has be withdrawn from savings account.");
-                Checking = 0;
-                Savings -= (Checking - amount);
-                OK = true;
-            }
+            //else if (Savings >= (Checking - amount))
+            //{
+            //    Console.Write("Debit amount exceeds checking balance, remainder has be withdrawn from savings account.");
+            //    Checking = 0;
+            //    Savings -= amount;
+            //    OK = true;
+            //}
             else
             {
                 Console.Write("Debit amount exceeded account balance.");

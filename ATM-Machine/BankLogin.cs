@@ -33,7 +33,7 @@ namespace ATM_Machine
         }
 
         //readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
-        readonly string ConnStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf"";Integrated Security=True";
+        readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf"";Integrated Security=True";
         // Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="D:\Google Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf";Integrated Security=True
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace ATM_Machine
             try
             {
                 //Create SqlConnection
-                SqlConnection con = new SqlConnection(ConnStr);
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Select * from Accounts where AccountId=@username and bankpin=@password", con);
                 cmd.Parameters.AddWithValue("@username", textBox1.Text);
                 cmd.Parameters.AddWithValue("@password", textBox2.Text);
