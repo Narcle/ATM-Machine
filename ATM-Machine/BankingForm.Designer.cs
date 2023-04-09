@@ -42,7 +42,7 @@
             this.checkBoxChecking = new System.Windows.Forms.CheckBox();
             this.checkBoxSavings = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.TransferBox = new System.Windows.Forms.TextBox();
+            this.TransferAmount = new System.Windows.Forms.TextBox();
             this.TransferBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -95,6 +95,7 @@
             this.WithdrawAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.WithdrawAmount.Size = new System.Drawing.Size(178, 32);
             this.WithdrawAmount.TabIndex = 17;
+            this.WithdrawAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -135,6 +136,7 @@
             this.Exit.TabIndex = 13;
             this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // Withdraw
             // 
@@ -190,22 +192,22 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "Transfer from Savings to Checking:";
             // 
-            // TransferBox
+            // TransferAmount
             // 
-            this.TransferBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TransferBox.Location = new System.Drawing.Point(523, 109);
-            this.TransferBox.Name = "TransferBox";
-            this.TransferBox.PlaceholderText = "0.00";
-            this.TransferBox.Size = new System.Drawing.Size(177, 32);
-            this.TransferBox.TabIndex = 29;
+            this.TransferAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TransferAmount.Location = new System.Drawing.Point(523, 109);
+            this.TransferAmount.Name = "TransferAmount";
+            this.TransferAmount.Size = new System.Drawing.Size(177, 32);
+            this.TransferAmount.TabIndex = 29;
+            this.TransferAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TransferBtn
             // 
             this.TransferBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TransferBtn.Location = new System.Drawing.Point(550, 147);
+            this.TransferBtn.Location = new System.Drawing.Point(545, 147);
             this.TransferBtn.Name = "TransferBtn";
             this.TransferBtn.Size = new System.Drawing.Size(128, 41);
-            this.TransferBtn.TabIndex = 30;
+            this.TransferBtn.TabIndex = 31;
             this.TransferBtn.Text = "Transfer";
             this.TransferBtn.UseVisualStyleBackColor = true;
             this.TransferBtn.Click += new System.EventHandler(this.TransferBtn_Click);
@@ -216,7 +218,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 428);
             this.Controls.Add(this.TransferBtn);
-            this.Controls.Add(this.TransferBox);
+            this.Controls.Add(this.TransferAmount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBoxSavings);
             this.Controls.Add(this.checkBoxChecking);
@@ -254,7 +256,7 @@
         private CheckBox checkBoxChecking;
         private CheckBox checkBoxSavings;
         private Label label6;
-        private TextBox TransferBox;
+        private TextBox TransferAmount;
         private Button TransferBtn;
     }
 }

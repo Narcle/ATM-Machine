@@ -28,6 +28,7 @@ namespace ATM_Machine
             SavingsBalance.Text = CurrentAcc.Savings.ToString();
             CheckingBalance.Text = CurrentAcc.Checking.ToString();
             WithdrawAmount.Text = "0.00";
+            TransferAmount.Text = "0.00";
         }
 
         private void BankingForm_Load(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace ATM_Machine
 
         }
 
-        private void Exit_Click_1(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -75,7 +76,7 @@ namespace ATM_Machine
                 if (CurrentAcc.DebitSavings(Convert.ToDecimal(WithdrawAmount.Text)))
                 {
                     MessageBox.Show("Withdraw from Savings = $" + WithdrawAmount.Text);//can you add a cancel to this?
-                    SQLHelper.UpdateAccount(CurrentAcc);
+                    SQLHelper.UpdateAccount(CurrentAcc);  
                     Update_Balances(CurrentAcc);
                 }
             }
@@ -84,9 +85,10 @@ namespace ATM_Machine
         private void TransferBtn_Click(object sender, EventArgs e)
         {
             //Transfer $ from savings to checking
-            decimal amt = Convert.ToDecimal(TransferBox.Text);
-            if (amt > 0)
+            
+            if (Convert.ToDecimal(TransferAmount.Text) > 0)
             {
+                decimal amt = Convert.ToDecimal(TransferAmount.Text);
                 Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
                 if (amt >= CurrentAcc.Savings)
                 {

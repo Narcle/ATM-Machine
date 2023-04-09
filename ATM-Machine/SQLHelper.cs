@@ -10,8 +10,9 @@ namespace ATM_Machine
 {
     public static class SQLHelper
     {
-        //const string SQLcs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
-        const string SQLcs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\Database1.mdf"";Integrated Security=True";
+        //The ALL annoying Connection string...
+        //const string SQLcs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""|DataDirectory|\BankDatabase.mdf"";Integrated Security=True";
+        const string SQLcs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Nathan\My Drive\WSCC\Programming 2 CIS135\ATM-Machine\ATM-Machine\BankDatabase.mdf"";Integrated Security=True";
 
         //Update SQL table to reflect account changed variables, updates to SQL server only.
         public static void UpdateAccount(Account CurAccount)
