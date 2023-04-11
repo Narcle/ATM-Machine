@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /ATM-Machine/BankDatabase_log.ldf
+/ATM-Machine/BankDatabase.mdf
