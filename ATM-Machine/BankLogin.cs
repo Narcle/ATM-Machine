@@ -16,17 +16,6 @@ namespace ATM_Machine
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //Bank ID #
-
-        }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            //Bank PIN
-
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             //Login button - why is it so hard to change button name? GUI editor hates it

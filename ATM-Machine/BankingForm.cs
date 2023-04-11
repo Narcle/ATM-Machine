@@ -31,11 +31,6 @@ namespace ATM_Machine
             TransferAmount.Text = "0.00";
         }
 
-        private void BankingForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -48,6 +43,7 @@ namespace ATM_Machine
             //Withdraw Button (had to re-add it, stupid gui designer)
             //Withdraw button, THE MAIN FUNCTION. If (drop down is checking) then withdraw from checking, etc for Savings too.
 
+            //Failsafes for checkboxes
             if ((checkBoxChecking.Checked) & (checkBoxSavings.Checked))
             {
                 MessageBox.Show("Please only check only one checkbox for Checking or Savings account.");
@@ -58,8 +54,7 @@ namespace ATM_Machine
                 MessageBox.Show("Please check one checkbox for Checking or Savings account.");
                 return;
             }
-
-            //if (Checking drop down)
+            //if checking withdraw
             if (checkBoxChecking.Checked)
                 {
                 Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
@@ -70,6 +65,7 @@ namespace ATM_Machine
                     Update_Balances(CurrentAcc);
                 }                
             }
+            //if savings withdraw
             if (checkBoxSavings.Checked)
             {
                 Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));

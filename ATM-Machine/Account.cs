@@ -35,7 +35,7 @@ namespace ATM_Machine
                    
             }
         }
-
+ 
         public int PinNum
         {
             get { return _pinNum; }
@@ -81,7 +81,7 @@ namespace ATM_Machine
             else
                 throw new Exception("Credited amount must be greater than zero");
         }
-
+        
         public virtual void CreditSavings(decimal amount)
         {
             if (amount > 0)
@@ -117,6 +117,7 @@ namespace ATM_Machine
             return OK;
         }
 
+        //Debit savings with balance check
         public virtual bool DebitSavings(decimal amount)
         {
             bool OK = true;
