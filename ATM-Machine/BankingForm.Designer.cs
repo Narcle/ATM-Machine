@@ -41,9 +41,10 @@
             this.CheckingBalance = new System.Windows.Forms.TextBox();
             this.checkBoxChecking = new System.Windows.Forms.CheckBox();
             this.checkBoxSavings = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.TransferAmount = new System.Windows.Forms.TextBox();
             this.TransferBtn = new System.Windows.Forms.Button();
+            this.TransferToChecking = new System.Windows.Forms.CheckBox();
+            this.TransferToSavings = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // SavingsBalance
@@ -182,16 +183,6 @@
             this.checkBoxSavings.Text = "Savings";
             this.checkBoxSavings.UseVisualStyleBackColor = true;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(470, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(273, 23);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Transfer from Savings to Checking:";
-            // 
             // TransferAmount
             // 
             this.TransferAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -212,14 +203,37 @@
             this.TransferBtn.UseVisualStyleBackColor = true;
             this.TransferBtn.Click += new System.EventHandler(this.TransferBtn_Click);
             // 
+            // TransferToChecking
+            // 
+            this.TransferToChecking.AutoSize = true;
+            this.TransferToChecking.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TransferToChecking.Location = new System.Drawing.Point(470, 38);
+            this.TransferToChecking.Name = "TransferToChecking";
+            this.TransferToChecking.Size = new System.Drawing.Size(288, 27);
+            this.TransferToChecking.TabIndex = 32;
+            this.TransferToChecking.Text = "Transfer from Savings to Checking";
+            this.TransferToChecking.UseVisualStyleBackColor = true;
+            // 
+            // TransferToSavings
+            // 
+            this.TransferToSavings.AutoSize = true;
+            this.TransferToSavings.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TransferToSavings.Location = new System.Drawing.Point(470, 71);
+            this.TransferToSavings.Name = "TransferToSavings";
+            this.TransferToSavings.Size = new System.Drawing.Size(288, 27);
+            this.TransferToSavings.TabIndex = 33;
+            this.TransferToSavings.Text = "Transfer from Checking to Savings";
+            this.TransferToSavings.UseVisualStyleBackColor = true;
+            // 
             // BankingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 428);
+            this.Controls.Add(this.TransferToSavings);
+            this.Controls.Add(this.TransferToChecking);
             this.Controls.Add(this.TransferBtn);
             this.Controls.Add(this.TransferAmount);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBoxSavings);
             this.Controls.Add(this.checkBoxChecking);
             this.Controls.Add(this.CheckingBalance);
@@ -255,8 +269,9 @@
         private TextBox CheckingBalance;
         private CheckBox checkBoxChecking;
         private CheckBox checkBoxSavings;
-        private Label label6;
         private TextBox TransferAmount;
         private Button TransferBtn;
+        private CheckBox TransferToChecking;
+        private CheckBox TransferToSavings;
     }
 }

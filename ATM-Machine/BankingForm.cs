@@ -84,21 +84,54 @@ namespace ATM_Machine
 
         private void TransferBtn_Click(object sender, EventArgs e)
         {
+            //Failsafes
+            if ((TransferToChecking.Checked) & (TransferToSavings.Checked))
+            {
+                MessageBox.Show("Please only check only one checkbox for Transfer.");
+                return;
+            }
+            if (!(TransferToChecking.Checked) & !(TransferToSavings.Checked))
+            {
+                MessageBox.Show("Please check one checkbox for Checking or Savings account to transfer from/to.");
+                return;
+            }
+
             //Transfer $ from savings to checking
-            
-            if (Convert.ToDecimal(TransferAmount.Text) > 0)
+            if (TransferToChecking.Checked)
             {
                 decimal amt = Convert.ToDecimal(TransferAmount.Text);
-                Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
-                if (amt >= CurrentAcc.Savings)
+                if (amt > 0)
                 {
-                    if (CurrentAcc.DebitSavings(amt))
+                    Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
+                    if (CurrentAcc.Savings >= amt)
                     {
-                        CurrentAcc.CreditChecking(amt);
-                        SQLHelper.UpdateAccount(CurrentAcc);
-                        Update_Balances(CurrentAcc);
-                        MessageBox.Show("Savings to Checking Transfer = $" + amt.ToString());
-                    }                           
+                        if (CurrentAcc.DebitSavings(amt))
+                        {
+                            CurrentAcc.CreditChecking(amt);
+                            SQLHelper.UpdateAccount(CurrentAcc);
+                            Update_Balances(CurrentAcc);
+                            MessageBox.Show("From Savings to Checking Transfer = $" + amt.ToString());
+                        }
+                    }
+                }
+            }
+            //Transfer from checking to savings
+            if (TransferToSavings.Checked)
+            {
+                decimal amt = Convert.ToDecimal(TransferAmount.Text);
+                if (amt > 0)
+                {
+                    Account CurrentAcc = SQLHelper.GetAccount(Convert.ToInt32(CustomerID.Text));
+                    if (CurrentAcc.Checking >= amt)
+                    {
+                        if (CurrentAcc.DebitChecking(amt))
+                        {
+                            CurrentAcc.CreditSavings(amt);
+                            SQLHelper.UpdateAccount(CurrentAcc);
+                            Update_Balances(CurrentAcc);
+                            MessageBox.Show("From Checking to Savings Transfer = $" + amt.ToString());
+                        }
+                    }
                 }
             }             
         }
