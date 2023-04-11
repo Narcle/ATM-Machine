@@ -16,7 +16,7 @@ namespace ATM_Machine
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Login_Click(object sender, EventArgs e)
         {
             //Login button - why is it so hard to change button name? GUI editor hates it
             if (textBox1.Text == "" || textBox2.Text == "")
